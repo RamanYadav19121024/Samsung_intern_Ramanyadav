@@ -1,0 +1,206 @@
+`timescale 1ns / 1ps
+
+module top(
+input clk,
+input rst,
+input start,
+// VGA interface signals
+output Hsync,
+output Vsync,
+output [9:0] output_img_pixel
+    );
+
+parameter IMG_SIZE = 16;
+parameter KRNL_SIZE = 3;
+
+//16x16 image input
+reg [9:0] img_input [0:255]; 
+reg [2:0] krnl [0:2];
+
+integer SEED1 = 32'h1234_5678;
+integer SEED2 = 32'h0000_0000;
+integer SEED3 = 32'hFFFF_FFFF;
+integer seed,i,j; 
+
+//Generating random image input
+
+initial 
+begin
+  seed = SEED2;
+  $srandom(seed);
+  for (i = 0; i < 256; i=i+1)
+    img_input[i] = $urandom();
+  for (i = 0; i < 3; i=i+1)
+    for (j = 0; j < 3; j=j+1)
+      krnl[i][j] = $urandom();
+end
+
+reg [7:0] img_addr;
+reg [9:0] output_img [0:255];
+reg       output_rdy;
+reg [7:0] out_addr;
+
+reg [9:0] mul_out;
+reg [9:0] mac_out;
+
+//Image address signals
+
+reg       started,started_d1,stride_poss;
+reg [7:0] next_col_addr,next_row_addr;
+
+wire      row_done,krnl_done;
+reg [3:0] row_cntr,col_cntr;
+
+reg [3:0] krnl_cntr;
+
+wire [5:0]VGA_x,VGA_y;
+wire [5:0]VGA_x_proper,VGA_y_proper;
+
+wire [7:0]out_display_addr;
+
+wire      VGA_active;
+
+//Output image
+
+always @ (posedge clk)
+begin
+  if(start)
+    for (i = 0; i < 256; i=i+1)
+      output_img[i] <= 10'd0;
+  else if(output_rdy)
+    output_img[out_addr] <= mac_out; 
+end
+
+always @ (posedge clk)
+begin
+  if(start)
+    started <= 1'b1;
+  else if(img_addr == ((IMG_SIZE*IMG_SIZE) - 8'd1))
+    started <= 1'b0;
+  started_d1 <= started;
+end
+
+//Image address
+
+always @ (posedge clk)
+begin
+  if(start)
+    img_addr <= 8'd0;
+  else if(started)
+  begin
+    if(row_done & ~krnl_done)
+      img_addr <= img_addr + IMG_SIZE - KRNL_SIZE + 1;  
+    else if(~stride_poss & row_done & krnl_done)
+      img_addr <= next_col_addr;   
+    else if(stride_poss & row_done & krnl_done)
+      img_addr <= next_row_addr;
+    else
+      img_addr <= img_addr + 8'd1;
+  end
+end
+
+//Output image address
+always @ (posedge clk)
+begin
+  if(start)
+    out_addr <= IMG_SIZE + 1;
+  else if(output_rdy & stride_poss)
+    out_addr <= out_addr + 8'd1;
+  else if(output_rdy)
+    out_addr <= out_addr + KRNL_SIZE;
+end
+
+always @ (posedge clk)
+begin
+  if(start)
+    krnl_cntr <= 4'd0;
+  else if(krnl_cntr == 4'd13 && krnl_done)
+    krnl_cntr <= 4'd0;
+  else if(krnl_done)
+    krnl_cntr <= krnl_cntr + 4'd1;
+end
+
+always @ (posedge clk)
+begin
+  if(start)
+    stride_poss <= 1'b1;
+  else if(krnl_cntr == 4'd13)
+    stride_poss <= 1'b0;
+  else
+    stride_poss <= 1'b1;
+end
+
+always @ (posedge clk)
+begin
+  if(start)
+    row_cntr <= 4'd0;
+  else if(started && row_cntr == KRNL_SIZE - 1)
+    row_cntr <= 4'd0;
+  else if(started)
+    row_cntr <= row_cntr + 4'd1;
+end
+assign row_done = (row_cntr == KRNL_SIZE - 1);
+
+always @ (posedge clk)
+begin
+  if(start)
+    col_cntr <= 4'd0;
+  else if(started && row_cntr == KRNL_SIZE - 1 && col_cntr == KRNL_SIZE - 1)
+    col_cntr <= 4'd0;
+  else if(started && row_done)
+    col_cntr <= col_cntr + 4'd1;
+end
+assign krnl_done = row_done && col_cntr == KRNL_SIZE - 1;
+
+always @ (posedge clk)
+begin
+  output_rdy <= krnl_done;
+end
+
+//Next row address and column address
+always @ (posedge clk)
+begin
+  if(started && row_cntr == 3'd0 && col_cntr == 3'd0)
+    next_row_addr <= img_addr + 4'd1; 
+  if(started && row_cntr == 3'd0 && col_cntr == 3'd0 && krnl_cntr == 4'd0)
+    next_col_addr <= img_addr + IMG_SIZE; 
+end
+
+
+always @ (posedge clk)
+begin
+  if(started) 
+    mul_out <= img_input[img_addr] * krnl[row_cntr][col_cntr];
+end
+
+always @ (posedge clk)
+begin
+  if(start)
+    mac_out <= 10'd0;
+  else if(output_rdy & started_d1)
+    mac_out <= mul_out;
+  else if(started_d1) 
+    mac_out <= mul_out + mac_out;
+end
+
+VGA_cntrl VGA_ins(
+.i_clk      (clk),
+.i_rst      (rst),
+
+.o_hs       (Hsync),
+.o_vs       (Vsync),
+
+.o_active   (VGA_active),
+
+.o_x        (VGA_x),
+.o_y        (VGA_y)
+);
+
+//Removing offset
+assign VGA_x_proper = VGA_x;
+assign VGA_y_proper = VGA_y - 6'd10;
+
+assign out_display_addr = VGA_x_proper + (VGA_y_proper*16);
+assign output_img_pixel = VGA_active ? output_img[out_display_addr] : 10'd0;
+ 
+endmodule
