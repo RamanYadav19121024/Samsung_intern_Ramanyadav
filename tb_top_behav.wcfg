@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="21411256fs"></ZoomStartTime>
+      <ZoomEndTime time="21593257fs"></ZoomEndTime>
+      <Cursor1Time time="21445856fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="163"></NameColumnWidth>
+      <ValueColumnWidth column_width="77"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="58" />
+   <wvobject fp_name="/tb_top/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/Hsync" type="logic">
+      <obj_property name="ElementShortName">Hsync</obj_property>
+      <obj_property name="ObjectShortName">Hsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/Vsync" type="logic">
+      <obj_property name="ElementShortName">Vsync</obj_property>
+      <obj_property name="ObjectShortName">Vsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_active" type="logic">
+      <obj_property name="ElementShortName">VGA_active</obj_property>
+      <obj_property name="ObjectShortName">VGA_active</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/output_img_pixel" type="array">
+      <obj_property name="ElementShortName">output_img_pixel[9:0]</obj_property>
+      <obj_property name="ObjectShortName">output_img_pixel[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/img_input" type="array">
+      <obj_property name="ElementShortName">img_input[0:255][9:0]</obj_property>
+      <obj_property name="ObjectShortName">img_input[0:255][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/img_addr" type="array">
+      <obj_property name="ElementShortName">img_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">img_addr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/krnl" type="array">
+      <obj_property name="ElementShortName">krnl[0:2][2:0]</obj_property>
+      <obj_property name="ObjectShortName">krnl[0:2][2:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/output_img" type="array">
+      <obj_property name="ElementShortName">output_img[0:255][9:0]</obj_property>
+      <obj_property name="ObjectShortName">output_img[0:255][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/out_addr" type="array">
+      <obj_property name="ElementShortName">out_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">out_addr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/mul_out" type="array">
+      <obj_property name="ElementShortName">mul_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">mul_out[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/mac_out" type="array">
+      <obj_property name="ElementShortName">mac_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">mac_out[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/krnl_cntr" type="array">
+      <obj_property name="ElementShortName">krnl_cntr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">krnl_cntr[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/row_cntr" type="array">
+      <obj_property name="ElementShortName">row_cntr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">row_cntr[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/col_cntr" type="array">
+      <obj_property name="ElementShortName">col_cntr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">col_cntr[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/h_count" type="array">
+      <obj_property name="ElementShortName">h_count[5:0]</obj_property>
+      <obj_property name="ObjectShortName">h_count[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/v_count" type="array">
+      <obj_property name="ElementShortName">v_count[5:0]</obj_property>
+      <obj_property name="ObjectShortName">v_count[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/SEED1" type="array">
+      <obj_property name="ElementShortName">SEED1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SEED1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/SEED2" type="array">
+      <obj_property name="ElementShortName">SEED2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SEED2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/SEED3" type="array">
+      <obj_property name="ElementShortName">SEED3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SEED3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/seed" type="array">
+      <obj_property name="ElementShortName">seed[31:0]</obj_property>
+      <obj_property name="ObjectShortName">seed[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/j" type="array">
+      <obj_property name="ElementShortName">j[31:0]</obj_property>
+      <obj_property name="ObjectShortName">j[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/output_rdy" type="logic">
+      <obj_property name="ElementShortName">output_rdy</obj_property>
+      <obj_property name="ObjectShortName">output_rdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/started" type="logic">
+      <obj_property name="ElementShortName">started</obj_property>
+      <obj_property name="ObjectShortName">started</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/started_d1" type="logic">
+      <obj_property name="ElementShortName">started_d1</obj_property>
+      <obj_property name="ObjectShortName">started_d1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/stride_poss" type="logic">
+      <obj_property name="ElementShortName">stride_poss</obj_property>
+      <obj_property name="ObjectShortName">stride_poss</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/next_col_addr" type="array">
+      <obj_property name="ElementShortName">next_col_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">next_col_addr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/next_row_addr" type="array">
+      <obj_property name="ElementShortName">next_row_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">next_row_addr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/row_done" type="logic">
+      <obj_property name="ElementShortName">row_done</obj_property>
+      <obj_property name="ObjectShortName">row_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/krnl_done" type="logic">
+      <obj_property name="ElementShortName">krnl_done</obj_property>
+      <obj_property name="ObjectShortName">krnl_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_x" type="array">
+      <obj_property name="ElementShortName">VGA_x[5:0]</obj_property>
+      <obj_property name="ObjectShortName">VGA_x[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_y" type="array">
+      <obj_property name="ElementShortName">VGA_y[5:0]</obj_property>
+      <obj_property name="ObjectShortName">VGA_y[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_x_proper" type="array">
+      <obj_property name="ElementShortName">VGA_x_proper[5:0]</obj_property>
+      <obj_property name="ObjectShortName">VGA_x_proper[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_y_proper" type="array">
+      <obj_property name="ElementShortName">VGA_y_proper[5:0]</obj_property>
+      <obj_property name="ObjectShortName">VGA_y_proper[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/out_display_addr" type="array">
+      <obj_property name="ElementShortName">out_display_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">out_display_addr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/IMG_SIZE" type="array">
+      <obj_property name="ElementShortName">IMG_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IMG_SIZE[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/KRNL_SIZE" type="array">
+      <obj_property name="ElementShortName">KRNL_SIZE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">KRNL_SIZE[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/i_clk" type="logic">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/i_rst" type="logic">
+      <obj_property name="ElementShortName">i_rst</obj_property>
+      <obj_property name="ObjectShortName">i_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/o_hs" type="logic">
+      <obj_property name="ElementShortName">o_hs</obj_property>
+      <obj_property name="ObjectShortName">o_hs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/o_vs" type="logic">
+      <obj_property name="ElementShortName">o_vs</obj_property>
+      <obj_property name="ObjectShortName">o_vs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/o_active" type="logic">
+      <obj_property name="ElementShortName">o_active</obj_property>
+      <obj_property name="ObjectShortName">o_active</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/o_x" type="array">
+      <obj_property name="ElementShortName">o_x[5:0]</obj_property>
+      <obj_property name="ObjectShortName">o_x[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/o_y" type="array">
+      <obj_property name="ElementShortName">o_y[5:0]</obj_property>
+      <obj_property name="ObjectShortName">o_y[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/HS_STA" type="array">
+      <obj_property name="ElementShortName">HS_STA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HS_STA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/HS_END" type="array">
+      <obj_property name="ElementShortName">HS_END[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HS_END[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/HS_STA2" type="array">
+      <obj_property name="ElementShortName">HS_STA2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HS_STA2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/HA_STA" type="array">
+      <obj_property name="ElementShortName">HA_STA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HA_STA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/VS_STA" type="array">
+      <obj_property name="ElementShortName">VS_STA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">VS_STA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/VS_END" type="array">
+      <obj_property name="ElementShortName">VS_END[31:0]</obj_property>
+      <obj_property name="ObjectShortName">VS_END[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/VS_STA2" type="array">
+      <obj_property name="ElementShortName">VS_STA2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">VS_STA2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/VA_STA" type="array">
+      <obj_property name="ElementShortName">VA_STA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">VA_STA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/VA_END" type="array">
+      <obj_property name="ElementShortName">VA_END[31:0]</obj_property>
+      <obj_property name="ObjectShortName">VA_END[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/LINE" type="array">
+      <obj_property name="ElementShortName">LINE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">LINE[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/top_ins/VGA_ins/SCREEN" type="array">
+      <obj_property name="ElementShortName">SCREEN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SCREEN[31:0]</obj_property>
+   </wvobject>
+</wave_config>
