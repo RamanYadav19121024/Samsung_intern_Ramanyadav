@@ -1,0 +1,61 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 11.06.2022 16:08:49
+// Design Name: 
+// Module Name: tb_top
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_top();
+reg     clk,rst,start;
+wire    Hsync,Vsync;
+wire [9:0] out_pixel;
+
+top top_ins(
+.clk    (clk),
+.rst    (rst),
+.start  (start),
+
+.Hsync  (Hsync),
+.Vsync  (Vsync),
+
+.output_img_pixel   (out_pixel)
+);
+
+always 
+  #5 clk = ~clk;
+
+initial 
+begin
+  #100;
+  clk = 1'b0;
+  rst = 1'b0;
+  start = 1'b0;
+  
+  @(negedge clk);
+  rst = 1'b1;
+  @(negedge clk);
+  rst = 1'b0;
+  
+  @(negedge clk);
+  start = 1'b1;
+  @(negedge clk);
+  start = 1'b0;
+end
+
+  
+endmodule
